@@ -12,10 +12,6 @@ Lo monté porque quería probar a tener un asistente propio sin depender de APIs
 - **Agente:** [Hermes Agent](https://github.com/NousResearch/hermes-agent) de Nous Research, conectado a LM Studio como proveedor personalizado.
 - **Telegram:** el gateway de Hermes conecta el agente con un bot creado con @BotFather.
 
-```
-Telegram  <-->  Hermes (gateway + agente)  <-->  LM Studio  <-->  Gemma 4 26B en la GPU
-```
-
 ## Qué hace
 
 - Responder preguntas desde Telegram.
