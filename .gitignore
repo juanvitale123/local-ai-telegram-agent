@@ -1,0 +1,7 @@
+.env
+*.db
+*.db-*
+sessions/
+memories/
+logs/
+auth.json
