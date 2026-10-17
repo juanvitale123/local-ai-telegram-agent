@@ -1,66 +1,42 @@
-# Extracto de la configuración de Hermes Agent (~/AppData/Local/hermes/config.yaml)
-# Solo se incluyen las opciones relevantes para este proyecto. Sin secretos.
+# Parte de mi config.yaml de Hermes (sin claves)
 
 model:
   default: google/gemma-4-26b-a4b-qat
   provider: custom:local-(localhost:1234)
-  base_url: http://localhost:1234/v1      # Servidor local de LM Studio
+  base_url: http://localhost:1234/v1
   api_mode: chat_completions
 
 custom_providers:
   - name: Local (localhost:1234)
     base_url: http://localhost:1234/v1
-    api_key: lm-studio                     # LM Studio no valida la clave
+    api_key: lm-studio   # LM Studio no comprueba la clave
     model: google/gemma-4-26b-a4b-qat
-
-agent:
-  max_turns: 60
-  reasoning_effort: medium
-  tool_use_enforcement: auto
 
 display:
   personality: technical
   platforms:
     telegram:
-      streaming: true                      # Respuestas en streaming en Telegram
+      streaming: true
 
 platform_toolsets:
   telegram:
     - hermes-telegram
 
 terminal:
-  backend: local                           # Shell de Windows
+  backend: local
   persistent_shell: true
-  timeout: 180
 
-# Seguridad
 approvals:
-  mode: manual                             # Cada comando requiere confirmación
-  timeout: 60
+  mode: manual       # pide confirmación antes de ejecutar comandos
   cron_mode: deny
-  destructive_slash_confirm: true
 
-security:
-  allow_private_urls: false
-  redact_secrets: true
-
-browser:
-  allow_private_urls: false
-
-# Gestión de contexto largo
 compression:
   enabled: true
-  threshold: 0.5                           # Comprime al 50 % de la ventana
-  target_ratio: 0.2
-  protect_first_n: 3
-  protect_last_n: 20
+  threshold: 0.5
 
-# Memoria persistente
 memory:
   memory_enabled: true
-  user_profile_enabled: true
 
-# Transcripción de notas de voz en local
 stt:
   enabled: true
   provider: local
